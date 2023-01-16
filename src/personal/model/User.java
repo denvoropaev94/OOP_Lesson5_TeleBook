@@ -1,5 +1,8 @@
 package personal.model;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+
+@JsonAutoDetect
 public class User {
     private String id = "";
     private String firstName;
@@ -16,6 +19,8 @@ public class User {
         this(firstName, lastName, phone);
         this.id = id;
     }
+
+    public User(){}
 
     public String getId() {
         return id;
@@ -51,6 +56,6 @@ public class User {
 
     @Override
     public String toString() {
-        return String.format("Идентификатор: %s\nИмя: %s,\nФамилия: %s,\nТелефон: %s", id, firstName, lastName, phone);
+        return String.format("Идентификатор: %s\nИмя: %s\nФамилия: %s\nТелефон: %s", id, firstName, lastName, phone);
     }
 }

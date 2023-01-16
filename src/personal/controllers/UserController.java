@@ -38,6 +38,11 @@ public class UserController {
             validateUserId(user);
             repository.updateUser(user);
         }
+        public void deleteUser(String id){
+            User user = repository.getAllUsers().stream().filter(p -> p.getId().equals(id)).findFirst().orElse(null);
+            System.out.println(user);
+            repository.deleteUser(user);
+        }
         private void validateUser(User user) throws Exception {
         if(user.getFirstName().contains(" "))
             throw new Exception("В имени не может быть пробелов ");

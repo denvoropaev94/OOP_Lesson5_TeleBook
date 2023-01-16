@@ -50,6 +50,14 @@ public class RepositoryFile implements Repository {
         writeDown(users);
     }
 
+    @Override
+    public void deleteUser(User user) {
+        List<User> users = getAllUsers();
+        User newUser = users.stream().filter(i -> i.getId().equals(user.getId())).findFirst().get();
+        users.remove(newUser);
+        writeDown(users);
+    }
+
     private void writeDown(List<User> users){
         List<String> lines = new ArrayList<>();
         for (User item: users) {
